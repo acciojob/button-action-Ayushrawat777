@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import "./../styles/App.css";
 
-function App() {
-  const [isclicked, setClicked] = useState(false);
+const App = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-  // Update paragraph when button is clicked
-  const handleClick = () => {
-    setClicked(!isclicked);
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
   };
-  // 
 
   return (
     <div id="main">
-      {isclicked && <p id="para">Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy</p>}
-      <button id="click" onClick={handleClick}>
-        Click
+      <p id="para" className={isVisible ? 'show' : 'hide'}>
+        Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy
+      </p>
+      <button id="click" onClick={toggleVisibility}>
+          {isVisible ? 'Hide Paragraph' : 'Show Paragraph'} 
       </button>
     </div>
   );
-}
+};
 
 export default App;
