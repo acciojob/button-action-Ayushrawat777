@@ -1,13 +1,22 @@
 import React, { useState } from "react";
-import './../styles/App.css';
 
-const App = (props) => {
+function App() {
+  const [isclicked, setClicked] = useState(false);
+
+  // Update paragraph when button is clicked
+  const handleClick = () => {
+    setClicked(!isclicked);
+  };
+  // 
 
   return (
-    <div className="App" id="main">
-      // Do not alter the main div
+    <div id="main">
+      {isclicked && <p id="para">Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy</p>}
+      <button id="click" onClick={handleClick}>
+        Click
+      </button>
     </div>
   );
 }
 
-export default App
+export default App;
